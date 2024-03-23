@@ -10,7 +10,7 @@ class PrintColorFunctions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("For Printing examples"),
+        title: Text("Color Printing Demo"),
       ),
       body: SafeArea(
         child: Padding(
