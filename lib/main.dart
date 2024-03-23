@@ -1,9 +1,7 @@
 import 'package:color_print/style/text.dart';
 import 'package:flutter/material.dart';
 
-import 'examples/colors/colors.dart';
-import 'examples/design/input_decorations.dart';
-import 'examples/validation/validation.dart';
+import 'screens/list_examples_screens.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,9 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   ThemeData theme = ThemeData.dark();
-
   ThemeMode? themeMode = ThemeMode.light;
-
   bool _isSwitched = false;
 
   @override
@@ -53,37 +49,10 @@ class _MyAppState extends State<MyApp> {
           body: ListView.separated(
             physics: BouncingScrollPhysics(),
             itemBuilder: (BuildContext context, int index) =>
-                list(context)[index],
+                examples(context)[index],
             separatorBuilder: (BuildContext context, int index) => Divider(),
-            itemCount: list(context).length,
+            itemCount: examples(context).length,
           ),
         ));
   }
 }
-
-List<Widget> list(BuildContext context) => [
-      ListTile(
-        leading: Icon(Icons.stars),
-        title: Text('Color Print Examples'),
-        onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => PrintColorFunctions())),
-      ),
-      ListTile(
-        leading: Icon(Icons.stars),
-        title: Text('Animation Examples'),
-        // onTap: () => Navigator.of(context).push(
-        //     MaterialPageRoute(builder: (context) => PrintColorFunctions())),
-      ),
-      ListTile(
-        leading: Icon(Icons.stars),
-        title: Text('InputDecoration Examples'),
-        onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => MyInputDecorations())),
-      ),
-      ListTile(
-        leading: Icon(Icons.stars),
-        title: Text('Validation Examples'),
-        onTap: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => ValidationPage())),
-      ),
-    ];
