@@ -1,8 +1,9 @@
+import 'package:colorful_print/colorful_print.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-     MyApp(),
+    MyApp(),
   );
 }
 
@@ -36,11 +37,9 @@ Map<String, int> hexToRgb(String hexColorCode) {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     printNewFormat("Hello", 68, 153, 85);
-    printHexCodeNew("Hex Hello", '#fafafa');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -48,8 +47,21 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Scaffold(
-        body: Text("Center"),
+      home: Scaffold(
+        body: SafeArea(
+            child: Column(
+          children: [
+            Text("Center"),
+            TextFormField(
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  printColor("Hello World New!  ",textColor: TextColor.black, backgroundColor: BackGroundColor.purple);
+                  print('\x1B[33mtext\x1B[0m');
+                },
+                child: Text("Click to print color"))
+          ],
+        )),
       ),
     );
   }

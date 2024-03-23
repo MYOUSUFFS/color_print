@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.1"
+  colorful_print:
+    dependency: "direct main"
+    description:
+      name: colorful_print
+      sha256: "2c9784a0d5e6dcd480a0d4ab67b7263e19d31644a30a8bc7f67ceb6db89549c7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -115,6 +123,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  myself:
+    dependency: "direct main"
+    description:
+      path: myself
+      relative: true
+    source: path
+    version: "0.0.2"
   path:
     dependency: transitive
     description:
@@ -186,3 +201,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=3.0.6 <4.0.0"
+  flutter: ">=1.17.0"
