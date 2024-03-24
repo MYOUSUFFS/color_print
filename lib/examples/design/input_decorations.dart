@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:myself/myself.dart';
+import 'package:provider/provider.dart';
+
+import '../../data.dart';
+import '../../style/text.dart';
 
 class MyInputDecorations extends StatelessWidget {
   const MyInputDecorations({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _dataIs = Provider.of<DataIs>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Input Decoration Demo'),
+        actions: [
+          Switch(
+            value: _dataIs.themeIsDark,
+            onChanged: (value) {
+              _dataIs.changeTheme(value);
+            },
+          ),
+          Text("Theme\nMode", style: MyText.heading.copyWith(fontSize: 14)),
+          SizedBox(width: 10)
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

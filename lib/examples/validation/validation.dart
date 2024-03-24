@@ -1,5 +1,9 @@
+import 'package:color_print/style/text.dart';
 import 'package:flutter/material.dart';
 import 'package:myself/myself.dart';
+import 'package:provider/provider.dart';
+
+import '../../data.dart';
 
 class ValidationPage extends StatefulWidget {
   const ValidationPage({super.key});
@@ -25,9 +29,20 @@ class _ValidationPageState extends State<ValidationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _dataIs = Provider.of<DataIs>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Validation Demo'),
+        actions: [
+          Switch(
+            value: _dataIs.themeIsDark,
+            onChanged: (value) {
+              _dataIs.changeTheme(value);
+            },
+          ),
+          Text("Theme\nMode", style: MyText.heading.copyWith(fontSize: 14)),
+          SizedBox(width: 10)
+        ],
       ),
       body: Form(
         key: _formKey,
